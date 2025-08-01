@@ -28,8 +28,7 @@ st.markdown("""
 
 
 # Sidebar Navigation
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Overall Stats", "Elo Ratings"])
+tab1, tab2 = st.tabs(["📊 Overall Stats", "📈 Elo Ratings"])
 
 # Load data paths
 ASSETS_PATH = "assets"
@@ -41,7 +40,7 @@ ASSETS_PATH = "assets"
 # st.sidebar.markdown(f"**Last Updated:** {last_updated}")
 
 # Page 1: Overall Stats
-if page == "Overall Stats":
+with tab1:
     st.title("\U0001F3D3 Overall Stats Dashboard")
 
     # Player Stats Table
@@ -72,7 +71,7 @@ if page == "Overall Stats":
     st.image(opponent_heatmap, width=800)
 
 # Page 2: Elo Ratings
-elif page == "Elo Ratings":
+with tab2:
     st.title("\U0001F4CA Elo Ratings Dashboard")
 
     # Leaderboard
